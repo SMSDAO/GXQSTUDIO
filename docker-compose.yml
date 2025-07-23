@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  fxsolbot-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    volumes:
+      - ./logs:/var/log/nginx
+    environment:
+      - NODE_ENV=production

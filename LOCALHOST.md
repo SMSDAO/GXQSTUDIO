@@ -73,6 +73,13 @@ const feePercentage = await flashLoanArbitrage.feePercentage();
 console.log("Fee percentage:", feePercentage.toString());
 ```
 
+### ArbitrageExecutorV2 (flash-loan demo)
+
+1. Deploy `ArbitrageExecutorV2` locally (or use Hardhat console) with a dummy flash-loan provider address.
+2. Fund the contract with a test ERC20, then call `executeFlashArb` with a tiny `amount` and `minProfit` set to `0` to validate the swap path wiring.
+3. Fees are only taken from profit: 0.01% to the `dev` address (set via `setDev` then `lockDevAddress`) and an admin fee capped at 20% via `setAdminFeeBps`.
+4. Toggle `setPaused(true)` to freeze execution while testing new strategies.
+
 ## Local Accounts
 
 Hardhat provides 20 test accounts with 10000 ETH each. The first account is used as the contract deployer and owner.

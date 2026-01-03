@@ -16,6 +16,16 @@ FXSOLBOT is a powerful DeFi automation platform with a modern 3D dashboard for m
 - **Trading Bot Management**: Configure and monitor automated trading strategies
 - **Cross-Platform Support**: Available for Windows, macOS, and Linux
 
+## Multi-Chain Arbitrage Setup
+
+- Configure networks and RPC rotation in [dashboard/src/config/networks.ts](dashboard/src/config/networks.ts); Ethereum, Polygon, and Base are enabled via `.env` flags.
+- Register plug-and-play strategies (DEX→DEX and triangular) in [dashboard/src/config/strategies.ts](dashboard/src/config/strategies.ts) and map deployed executor addresses per chain.
+- Flash loans: the dashboard/bot calls `executeFlashArb` on [contracts/ArbitrageExecutorV2.sol](contracts/ArbitrageExecutorV2.sol), which borrows from the configured pool, executes swaps, repays, and reverts if profit cannot cover principal + premium.
+- Fees from profit only: 0.01% to the dev address (gxqstudio.eth, set via `setDev`), and configurable admin fees capped at 20%; no profit means no fee, and transactions revert if repayment or `minProfit` is missed.
+- Off-chain discovery: price scanners pull router quotes, estimate gas/premium, and only submit on-chain when expected profit clears the safety margin; see [dashboard/src/lib/arbitrageScanner.ts](dashboard/src/lib/arbitrageScanner.ts) and [dashboard/src/lib/executionClient.ts](dashboard/src/lib/executionClient.ts).
+- Add a new chain by extending `NETWORKS` in [dashboard/src/config/networks.ts](dashboard/src/config/networks.ts) and providing router + flash-loan provider addresses; add a new strategy by appending to [dashboard/src/config/strategies.ts](dashboard/src/config/strategies.ts).
+- Testnets: point RPCs to test endpoints, lower `MAX_CAPITAL_PER_TRADE`, and deploy `ArbitrageExecutorV2` to the testnet before wiring executor addresses in the strategy registry.
+
 ## Quick Start
 
 ### Prerequisites

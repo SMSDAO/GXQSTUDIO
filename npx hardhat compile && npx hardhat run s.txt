@@ -1,0 +1,12 @@
+npx hardhat compile && npx hardhat run scripts/deploy.js --network base mainnet
+
+
+pragma solidity ^0.8.20;
+
+// Replace old imports with new ones
+import "@chainlink/contracts/src/v1x/interfaces/AggregatorV3Interface.sol";
+import "@uniswap/v3-core@1.4.2/contracts/interfaces/IUniswapV3Pool.sol";
+
+contract FlashLoanArbitrage is ReentrancyGuard {
+
+}

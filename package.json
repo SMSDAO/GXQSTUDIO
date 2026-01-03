@@ -1,0 +1,36 @@
+{
+  "name": "fxsolbot",
+  "version": "1.0.0",
+  "description": "DeFi arbitrage and flash loan contracts",
+  "main": "index.js",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "deploy": "npx hardhat run scripts/deployAll.js --network base",
+    "deploy:local": "npx hardhat run scripts/deploy.js --network localhost",
+    "node": "npx hardhat node",
+    "local": "node scripts/run-local.js",
+    "test": "npx hardhat test",
+    "fund": "node scripts/fundContract.js",
+    "fund:local": "npx hardhat run scripts/fundLocalContract.js --network localhost"
+  },
+  "keywords": [
+    "defi",
+    "arbitrage",
+    "flashloan",
+    "base"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "hardhat": "^2.17.0"
+  },
+  "dependencies": {
+    "@chainlink/contracts": "^1.4.0",
+    "@openzeppelin/contracts": "^4.9.6",
+    "@uniswap/v3-core": "^1.0.1",
+    "@uniswap/v3-periphery": "^1.4.4",
+    "dotenv": "^16.6.1",
+    "ethers": "^6.7.0"
+  }
+}

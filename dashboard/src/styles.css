@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #0b1021;
+  color: #e8ecf1;
+}
+.app {
+  padding: 1.5rem;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section {
+  margin-top: 1.25rem;
+}
+.card {
+  border: 1px solid #1e2a45;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin: 0.5rem 0;
+  background: #11182e;
+}
+.row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.pill {
+  border: 1px solid #243552;
+  padding: 0.5rem;
+  border-radius: 8px;
+  margin: 0.3rem 0.3rem 0 0;
+}
+.btn {
+  margin: 0.25rem 0;
+  padding: 0.35rem 0.75rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.btn.on {
+  background: #16a34a;
+  color: white;
+}
+.btn.off {
+  background: #374151;
+  color: #e5e7eb;
+}
+.log {
+  border-bottom: 1px solid #1f2d46;
+  padding: 0.35rem 0;
+}

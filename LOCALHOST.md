@@ -113,3 +113,31 @@ npm run deploy -- --network base
 ```
 
 Make sure to fund your account with ETH on the target network before deploying.
+
+# Localhost quickstart
+
+1) Start Hardhat node
+```bash
+cd contracts
+npx hardhat node
+```
+
+2) Deploy ArbExecutor locally
+```bash
+cd contracts
+npm run deploy:local
+```
+
+3) Run bot against localhost
+```bash
+cd bot
+npm start
+```
+
+4) Run dashboard
+```bash
+cd dashboard
+npm run dev
+```
+
+Configure `.env` (root) with RPC `http://127.0.0.1:8545` if desired, and set `ENABLE_ETHEREUM=true`.
